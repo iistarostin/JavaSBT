@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaPlugins/JavaPlugins.iml" filepath="$PROJECT_DIR$/JavaPlugins/JavaPlugins.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaSBT.iml" filepath="$PROJECT_DIR$/.idea/JavaSBT.iml" />
+    </modules>
+  </component>
+</project>
