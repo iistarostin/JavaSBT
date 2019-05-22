@@ -2,12 +2,9 @@ package hw.threading;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ScalableThreadPoolTest {
 
@@ -30,7 +27,6 @@ class ScalableThreadPoolTest {
         threadPool.start();
         assert ((ScalableThreadPool) threadPool).getCurrentThreadCount() == 3;
         for (int i = 4; i < 10; ++i) {
-            final int n = i;
             threadPool.execute(() -> {
                 lock2.lock();
                 value.incrementAndGet();
@@ -41,12 +37,12 @@ class ScalableThreadPoolTest {
         assert ((ScalableThreadPool) threadPool).getCurrentThreadCount() == 6;
         lock2.unlock();
         while (ndone.get() < 6);
-        Thread.currentThread().sleep(1000);
+        Thread.sleep(1000);
         assert ((ScalableThreadPool) threadPool).getCurrentThreadCount() == 4;
         assert value.get() == 6;
         lock1.unlock();
         while (ndone.get() < 10);
-        Thread.currentThread().sleep(1000);
+        Thread.sleep(1000);
         assert value.get() == 10;
 
     }

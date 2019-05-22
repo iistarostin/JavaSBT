@@ -10,7 +10,7 @@ public class DBCacheStorage implements CacheStorage {
     private final String path;
     private final String tableName;
 
-    public DBCacheStorage(String cacheFile, String tableName) throws IOException {
+    public DBCacheStorage(String cacheFile, String tableName) {
         this.path = "jdbc:sqlite:" + cacheFile + ".db";
         this.tableName = "\"" + tableName + "\"";
     }

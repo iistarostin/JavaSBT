@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SimpleExecutionManagerTest {
 
     @Test
@@ -16,7 +14,7 @@ class SimpleExecutionManagerTest {
         executionManager.execute(() -> {
             callback.set(true);
         }, () -> {});
-        Thread.currentThread().sleep(100);
+        Thread.sleep(100);
         assert callback.get();
     }
     @Test
@@ -30,19 +28,19 @@ class SimpleExecutionManagerTest {
             value.incrementAndGet();
         }, () -> {
             try {
-                Thread.currentThread().sleep(100);
+                Thread.sleep(100);
             } catch (InterruptedException e) { }
             value.incrementAndGet();
         }, () -> {
             try {
-                Thread.currentThread().sleep(100);
+                Thread.sleep(100);
             } catch (InterruptedException e) { }
             value.incrementAndGet();
         });
         while (value.get() == 0);
         executionContext.interrupt();
         assert nCallback.get() == 0;
-        Thread.currentThread().sleep(1000);
+        Thread.sleep(1000);
         assert value.get() == 2;
     }
 }

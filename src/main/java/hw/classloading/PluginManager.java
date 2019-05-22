@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.net.URLStreamHandlerFactory;
 
 public class PluginManager {
     //C:\Users\IS\IdeaProjects\JavaSBT\out\artifacts

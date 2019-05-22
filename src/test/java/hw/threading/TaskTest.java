@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class TaskTest {
     @Test
     void get() {
@@ -17,7 +15,7 @@ class TaskTest {
 
         Task<Integer> task = new Task<>( () -> {
             ncalled.incrementAndGet();
-            Thread.currentThread().sleep(100);
+            Thread.sleep(100);
             return 5;
         });
 

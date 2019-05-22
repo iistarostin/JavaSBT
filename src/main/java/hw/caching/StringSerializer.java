@@ -3,7 +3,7 @@ package hw.caching;
 import java.io.*;
 import java.util.Base64;
 
-public class StringSerializer {
+class StringSerializer {
 
     public static String encode(Serializable obj) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

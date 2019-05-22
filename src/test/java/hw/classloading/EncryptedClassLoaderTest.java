@@ -5,12 +5,10 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class EncryptedClassLoaderTest {
 
     @Test
-    void findClass() throws InvocationTargetException, NoSuchMethodException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    void findClass() throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         EncryptedClassLoader classLoader = new EncryptedClassLoader((byte) 0,
                 new File("C:\\Users\\IS\\IdeaProjects\\JavaSBT\\JavaPlugins\\target\\classes"),
                 ClassLoader.getSystemClassLoader());
