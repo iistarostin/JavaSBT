@@ -30,7 +30,7 @@ public class Task<T> {
             try {
                 value.set(taskToDo.call());
                 return value.get();
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 exception = new TaskCallException(e);
                 value.set(null);
                 throw exception;

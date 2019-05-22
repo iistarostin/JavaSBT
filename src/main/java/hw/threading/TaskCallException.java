@@ -1,7 +1,7 @@
 package hw.threading;
 
 public class TaskCallException extends RuntimeException {
-    public TaskCallException(Exception e) {
+    public TaskCallException(Throwable e) {
         super(e);
     }
 }

@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ScalableThreadPoolTest {
 
     @Test
-    void scalabilityTest() {
+    void scalabilityTest() throws InterruptedException {
         AtomicInteger value = new AtomicInteger(0);
         Lock lock1 = new ReentrantLock(), lock2 = new ReentrantLock();
         lock1.lock();
@@ -41,10 +41,12 @@ class ScalableThreadPoolTest {
         assert ((ScalableThreadPool) threadPool).getCurrentThreadCount() == 6;
         lock2.unlock();
         while (ndone.get() < 6);
+        Thread.currentThread().sleep(1000);
         assert ((ScalableThreadPool) threadPool).getCurrentThreadCount() == 4;
         assert value.get() == 6;
         lock1.unlock();
         while (ndone.get() < 10);
+        Thread.currentThread().sleep(1000);
         assert value.get() == 10;
 
     }

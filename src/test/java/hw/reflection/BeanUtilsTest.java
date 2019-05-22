@@ -1,5 +1,6 @@
 package hw.reflection;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
@@ -149,7 +150,7 @@ public class BeanUtilsTest {
             assert (temp.equals(b2));
         }
         catch (Exception e){
-            assert (false);
+            Assert.fail();
         }
     }
     @Test
@@ -167,7 +168,7 @@ public class BeanUtilsTest {
             assert (!b2.getTitle().equals(temp.getTitle()));
         }
         catch (Exception e){
-            assert (false);
+            Assert.fail();
         }
     }
 }

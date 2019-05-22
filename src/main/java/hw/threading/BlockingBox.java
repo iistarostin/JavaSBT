@@ -20,7 +20,7 @@ class BlockingBox<ElementType> {
         return value;
     }
 
-    public ElementType get() throws NoSuchElementException {
+    public synchronized ElementType get() throws NoSuchElementException {
         if (!ready.get()) {
             throw new NoSuchElementException();
         }

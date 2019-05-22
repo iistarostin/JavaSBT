@@ -25,7 +25,7 @@ public class BeanUtils {
         Method[] setters = extractSetters(toType);
         for (Method setter: setters) {
             Class<?> setterParameterType = setter.getParameterTypes()[0];
-            String correspondingGetterName = "waitAndGet" + setter.getName().substring(3);
+            String correspondingGetterName = "get" + setter.getName().substring(3);
             try {
                 Method getter = fromType.getMethod(correspondingGetterName);
                 if (setterParameterType.isAssignableFrom(getter.getReturnType()))
